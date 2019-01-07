@@ -2,15 +2,12 @@ import java.util.ArrayList;
 
 public class Password {
 
-	private ArrayList<Character> lower = new ArrayList<Character>();
-	private ArrayList<Character> upper = new ArrayList<Character>();
-	private ArrayList<Character> special = new ArrayList<Character>();
-	private ArrayList<Integer> number = new ArrayList<Integer>();
 	private ArrayList<String> combinedPool = new ArrayList<String>();
 	
-	Entropy entropy;
+	Double entropy;
 	String randomPassword;
 	String label;
+	Pool pool;
 	
 	final int passwordLength = 32;
 	final int poolSize = 94;
@@ -19,13 +16,9 @@ public class Password {
 	{
 		this.label = "unknown";
 		this.randomPassword = "";
-		this.entropy = new Entropy();
-		
-		lower = entropy.getLower();
-		upper = entropy.getUpper();
-		special = entropy.getSpecial();
-		number = entropy.getNumber();
-		combinePool();
+		this.entropy = 0.0;
+		this.pool = new Pool();
+		combinedPool = pool.getCombined();
 		
 		this.randomPassword = generatePassword();
 		cleansePassword();
@@ -35,14 +28,10 @@ public class Password {
 	{
 		this.label = label;
 		this.randomPassword = "";
-		this.entropy = new Entropy();
-		
-		lower = entropy.getLower();
-		upper = entropy.getUpper();
-		special = entropy.getSpecial();
-		number = entropy.getNumber();
-		combinePool();
-		
+		this.entropy = 0.0;
+		this.pool = new Pool();
+		combinedPool = pool.getCombined();
+
 		this.randomPassword = generatePassword();
 		cleansePassword();
 	}
@@ -51,20 +40,16 @@ public class Password {
 	{
 		this.label = label;
 		this.randomPassword = password;
-		this.entropy = new Entropy(randomPassword);
-		
-		lower = entropy.getLower();
-		upper = entropy.getUpper();
-		special = entropy.getSpecial();
-		number = entropy.getNumber();
-		combinePool();
-		
+		this.entropy = 0.0;
+		this.pool = new Pool();
+		combinedPool = pool.getCombined();
+
 		cleansePassword();
 	}
 	
 	public double getEntropy()
 	{
-		return this.entropy.getBits();
+		return this.entropy;
 	}
 	
 	public String getRandomPassword()
@@ -87,6 +72,11 @@ public class Password {
 		this.label = label;
 	}
 	
+	public void setEntropy(double bits)
+	{
+		this.entropy = bits;
+	}
+	
 	public String generatePassword()
 	{
 		ArrayList<String> list = new ArrayList<String>();
@@ -104,25 +94,7 @@ public class Password {
 		String charToString = combinedPool.get(randomIndex);
 		return charToString;
 	}
-	
-	public void combinePool()
-	{
-		ArrayList<Character> charPool = new ArrayList<Character>();
-		charPool.addAll(lower);
-		charPool.addAll(upper);
-		charPool.addAll(special);
-
-		for(Character c: charPool)
-		{
-			combinedPool.add(c.toString());
-		}
-		for(Integer i: number)
-		{
-			combinedPool.add(i.toString());
-		}
 		
-	}
-	
 	public void cleansePassword()
 	{
 		this.randomPassword = this.randomPassword.replaceAll("\\,\\s", "");
