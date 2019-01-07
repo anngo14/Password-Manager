@@ -4,37 +4,37 @@ import java.util.List;
 
 public class Entropy {
 	
-	private final int lowerMin = 97;
-	private final int lowerMax = 122;
-	private final int upperMin = 65;
-	private final int upperMax = 90;
-	private final int specialMin = 33;
-	private final int specialMax = 47;
+	
 	private final int lowerPool = 26;
 	private final int specialPool = 32;
 	private final int numberPool = 10;
 	
-	double bits;
 	private ArrayList<Character> lower = new ArrayList<Character>();
 	private ArrayList<Character> upper = new ArrayList<Character>();
 	private ArrayList<Character> special = new ArrayList<Character>();
-	private ArrayList<Integer> number = new ArrayList<Integer>();
-
+	private ArrayList<Character> number = new ArrayList<Character>();
+	private ArrayList<Character> passwordList = new ArrayList<Character>();
+	double bits;
+	Pool pool;
+	
 	public Entropy()
-	{
-		initializeLower();
-		initializeUpper();
-		initializeSpecial();
-		initializeNumber();
+	{	
+		pool = new Pool();
 		bits = 0.0;
+		lower = pool.getLower();
+		upper = pool.getUpper();
+		special = pool.getSpecial();
+		number = pool.getNumber();
 	}
 	
 	public Entropy(String password)
 	{
-		initializeLower();
-		initializeUpper();
-		initializeSpecial();
-		initializeNumber();
+		pool = new Pool();
+		lower = pool.getLower();
+		upper = pool.getUpper();
+		special = pool.getSpecial();
+		number = pool.getNumber();
+		passwordList = convertToList(password);
 		bits = calculateBits(password);
 	}
 	
@@ -43,62 +43,13 @@ public class Entropy {
 		return this.bits;
 	}
 	
-	public ArrayList<Character> getLower()
+	public void setBits(double bits)
 	{
-		return this.lower;
+		this.bits = bits;
 	}
-	
-	public ArrayList<Character> getUpper()
-	{
-		return this.upper;
-	}
-	
-	public ArrayList<Character> getSpecial()
-	{
-		return this.special;
-	}
-	
-	public ArrayList<Integer> getNumber()
-	{
-		return this.number;
-	}
-	
-	public void initializeLower()
-	{
-		for(int i = lowerMin; i <= lowerMax; i++)
-		{
-			lower.add((char) i);
-		}
-	}
-	
-	public void initializeUpper()
-	{
-		for(int i = upperMin; i <= upperMax; i++)
-		{
-			upper.add((char) i);
-		}
-	}
-	
-	public void initializeSpecial()
-	{
-		List<Character> specialChar = Arrays.asList(':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '-', '`', '{', '|', '}', '~');
-		for(int i = specialMin; i <= specialMax; i++)
-		{
-			special.add((char) i);
-		}
-		special.addAll(specialChar);
-	}
-	
-	public void initializeNumber()
-	{
-		for(int i = 0; i <= 9; i++)
-		{
-			number.add(i);
-		}
-	}
-	
 	public double calculateBits(String password)
 	{
+		passwordList = convertToList(password);
 		int pool = determinePool(password);
 		double entropyBits = 0.0;
 		
@@ -108,8 +59,8 @@ public class Entropy {
 	
 	public int determinePool(String password)
 	{
-		ArrayList<Character> passwordList = convertToList(password);
 		int poolOfChar = 0;
+
 		while(passwordList.size() > 0)
 		{
 			poolOfChar += addPool(passwordList);
