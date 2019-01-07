@@ -28,6 +28,8 @@ public class Password {
 		combinePool();
 		
 		this.randomPassword = generatePassword();
+		cleansePassword();
+		
 	}
 	public Password(String label)
 	{
@@ -42,6 +44,7 @@ public class Password {
 		combinePool();
 		
 		this.randomPassword = generatePassword();
+		cleansePassword();
 	}
 	
 	public Password(String label, String password)
@@ -56,6 +59,7 @@ public class Password {
 		number = entropy.getNumber();
 		combinePool();
 		
+		cleansePassword();
 	}
 	
 	public double getEntropy()
@@ -117,5 +121,11 @@ public class Password {
 			combinedPool.add(i.toString());
 		}
 		
+	}
+	
+	public void cleansePassword()
+	{
+		this.randomPassword = this.randomPassword.replaceAll("\\,\\s", "");
+		this.randomPassword = this.randomPassword.substring(1, this.randomPassword.length() - 1);
 	}
 }
