@@ -96,7 +96,8 @@ public class Password {
 	
 	public String randomize()
 	{
-		String charToString = combinedPool.get((int) (Math.random() * ((poolSize) + 1)));
+		int randomIndex = (int) (Math.random() * (poolSize));
+		String charToString = combinedPool.get(randomIndex);
 		return charToString;
 	}
 	
