@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.registerController">
+   <children>
+      <Label layoutX="237.0" layoutY="127.0" text="Password Manager" textAlignment="CENTER">
+         <font>
+            <Font size="64.0" />
+         </font>
+      </Label>
+      <Label layoutX="451.0" layoutY="304.0" text="Register">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <TextField fx:id="username" alignment="CENTER" layoutX="421.0" layoutY="361.0" prefHeight="35.0" prefWidth="161.0" promptText="Username">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <TextField fx:id="password" alignment="CENTER" layoutX="421.0" layoutY="408.0" prefHeight="35.0" prefWidth="161.0" promptText="Password">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <Button fx:id="submit" layoutX="468.0" layoutY="460.0" mnemonicParsing="false" onAction="#submitForm" text="Submit">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Hyperlink fx:id="back" layoutX="836.0" layoutY="738.0" onAction="#backToLogin" prefHeight="28.0" prefWidth="150.0" text="Back To Login">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Hyperlink>
+   </children>
+</AnchorPane>

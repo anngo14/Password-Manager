@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.userController">
+   <children>
+      <Text layoutX="14.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome,">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Text>
+      <TextField fx:id="username" editable="false" layoutX="223.0" layoutY="-2.0" prefHeight="102.0" prefWidth="288.0" promptText="Username" style="-fx-background-color: transparent;">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </TextField>
+      <Hyperlink layoutX="881.0" layoutY="32.0" onAction="#backToLogin" text="Logout">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Hyperlink>
+      <TableView fx:id="table" layoutX="50.0" layoutY="136.0" prefHeight="273.0" prefWidth="900.0">
+        <columns>
+            <TableColumn prefWidth="81.0" text="No." />
+          <TableColumn prefWidth="230.0" text="Label" />
+          <TableColumn minWidth="0.0" prefWidth="441.0" text="Password" />
+            <TableColumn minWidth="0.0" prefWidth="147.0" text="Entropy" />
+        </columns>
+      </TableView>
+      <TextField fx:id="randomPassword" alignment="CENTER" editable="false" layoutX="50.0" layoutY="484.0" prefHeight="77.0" prefWidth="654.0">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </TextField>
+      <Button layoutX="712.0" layoutY="484.0" mnemonicParsing="false" onAction="#generatePassword" prefHeight="77.0" prefWidth="121.0" text="Generate">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="839.0" layoutY="484.0" mnemonicParsing="false" onAction="#savePassword" prefHeight="77.0" prefWidth="112.0" text="Save">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <TextField fx:id="label" layoutX="210.0" layoutY="444.0" prefHeight="29.0" prefWidth="175.0" />
+      <TextField fx:id="checkPassword" alignment="CENTER" layoutX="50.0" layoutY="625.0" prefHeight="77.0" prefWidth="654.0">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </TextField>
+      <Button layoutX="712.0" layoutY="625.0" mnemonicParsing="false" onAction="#checkPassword" prefHeight="77.0" prefWidth="241.0" text="Check Password Strength">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Text layoutX="50.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password Label: ">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
