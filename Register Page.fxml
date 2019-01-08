@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="242.0" layoutY="124.0" text="Password Manager" textAlignment="CENTER">
+         <font>
+            <Font size="64.0" />
+         </font>
+      </Label>
+      <Label layoutX="467.0" layoutY="299.0" text="Register">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField layoutX="398.0" layoutY="351.0" promptText="Username" />
+      <TextField layoutX="398.0" layoutY="402.0" promptText="Password" />
+      <Button fx:id="submit" layoutX="470.0" layoutY="457.0" mnemonicParsing="false" onAction="#submitForm" text="Submit" />
+   </children>
+</AnchorPane>
