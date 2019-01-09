@@ -8,6 +8,7 @@ public class Password {
 	Double entropy;
 	String randomPassword;
 	String label;
+	private int passwordId;
 	Pool pool;
 	
 	final int passwordLength = 32;
@@ -19,6 +20,7 @@ public class Password {
 		this.randomPassword = "";
 		this.entropy = 0.0;
 		this.pool = new Pool();
+		this.passwordId = 0;
 		combinedPool = pool.getCombined();
 		
 		this.randomPassword = generatePassword();
@@ -48,6 +50,11 @@ public class Password {
 		cleansePassword();
 	}
 	
+	public int getId()
+	{
+		return this.passwordId;
+	}
+	
 	public double getEntropy()
 	{
 		return this.entropy;
@@ -61,6 +68,11 @@ public class Password {
 	public String getLabel()
 	{
 		return this.label;
+	}
+	
+	public void setId(int passId)
+	{
+		this.passwordId = passId;
 	}
 	
 	public void setRandomPassword(String password)
