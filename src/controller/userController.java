@@ -26,6 +26,11 @@ public class userController {
 	@FXML
 	TextField checkPassword;
 	
+	@FXML
+	public void initialize()
+	{
+		username.setText("Username");
+	}
 	public userController()
 	{
 		super();
