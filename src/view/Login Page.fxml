@@ -19,15 +19,15 @@
          <font>
             <Font size="18.0" />
          </font></TextField>
-      <Hyperlink fx:id="register" layoutX="420.0" layoutY="519.0" onAction="#registerUser" text="Register as a New User">
+      <Hyperlink fx:id="register" layoutX="414.0" layoutY="511.0" onAction="#registerUser" text="Register as a New User">
          <font>
             <Font size="16.0" />
          </font></Hyperlink>
-      <Hyperlink fx:id="reset" layoutX="446.0" layoutY="552.0" onAction="#resetPassword" text="Reset Password">
+      <Hyperlink fx:id="reset" layoutX="440.0" layoutY="544.0" onAction="#resetPassword" text="Reset Password">
          <font>
             <Font size="16.0" />
          </font></Hyperlink>
-      <Label layoutX="466.0" layoutY="304.0" text="Login">
+      <Label layoutX="466.0" layoutY="301.0" text="Login">
          <font>
             <Font size="28.0" />
          </font>

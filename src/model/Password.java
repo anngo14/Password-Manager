@@ -16,7 +16,7 @@ public class Password {
 	
 	public Password()
 	{
-		this.label = "unknown";
+		this.label = "UNKNOWN";
 		this.randomPassword = "";
 		this.entropy = 0.0;
 		this.pool = new Pool();

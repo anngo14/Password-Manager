@@ -24,13 +24,13 @@
       </Hyperlink>
       <TableView fx:id="table" layoutX="50.0" layoutY="136.0" prefHeight="273.0" prefWidth="900.0">
         <columns>
-            <TableColumn prefWidth="81.0" text="No." />
-          <TableColumn prefWidth="230.0" text="Label" />
-          <TableColumn minWidth="0.0" prefWidth="441.0" text="Password" />
-            <TableColumn minWidth="0.0" prefWidth="147.0" text="Entropy" />
+            <TableColumn fx:id="nColumn" editable="false" prefWidth="81.0" text="No." />
+          <TableColumn fx:id="lColumn" editable="false" prefWidth="230.0" text="Label" />
+          <TableColumn fx:id="pColumn" editable="false" minWidth="0.0" prefWidth="441.0" text="Password" />
+            <TableColumn fx:id="eColumn" editable="false" minWidth="0.0" prefWidth="147.0" text="Entropy" />
         </columns>
       </TableView>
-      <TextField fx:id="randomPassword" alignment="CENTER" editable="false" layoutX="50.0" layoutY="484.0" prefHeight="77.0" prefWidth="654.0">
+      <TextField fx:id="randomPassword" alignment="CENTER" layoutX="50.0" layoutY="484.0" prefHeight="77.0" prefWidth="654.0">
          <font>
             <Font size="28.0" />
          </font>
@@ -61,5 +61,10 @@
             <Font size="22.0" />
          </font>
       </Text>
+      <Button layoutX="886.0" layoutY="100.0" mnemonicParsing="false" onAction="#refresh" text="Refresh">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
