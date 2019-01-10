@@ -2,13 +2,20 @@ package controller;
 
 import java.io.IOException;
 
+import dao.UserDAO;
+import dao.UserDAOImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.scene.Node;
+import model.User;
 
 public class loginController {
 
@@ -17,7 +24,7 @@ public class loginController {
 	@FXML 
 	private TextField username;
 	@FXML 
-	private TextField password;
+	private PasswordField password;
 	@FXML
 	private Button submit;
 	
@@ -31,9 +38,27 @@ public class loginController {
 	{
 		String userInput = username.getText();
 		String passInput = password.getText();
+		User userCheck = new User();
+		userCheck.setUser(userInput);
+		userCheck.setPassword(passInput);
 		
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/Main User View.fxml"));
-		content.getChildren().setAll(pane);
+		UserDAO dao = new UserDAOImpl();
+		if(dao.checkUser(userCheck))
+		{
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource("/view/Main User View.fxml"));
+			Parent root = (Parent) loader.load();
+			Scene scene = new Scene(root);
+			userController uControl = loader.getController();
+			uControl.initData(userCheck);
+			
+			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+			window.setScene(scene);
+			window.show();
+					
+			//AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/Main User View.fxml"));
+			//content.getChildren().setAll(pane);
+		}
 	}
 	public void registerUser(ActionEvent event) throws IOException
 	{

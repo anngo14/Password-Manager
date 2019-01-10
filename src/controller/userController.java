@@ -49,15 +49,7 @@ public class userController implements Initializable{
 	User sessionUser = new User();
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		username.setText("Andrew");
-		nColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
-		lColumn.setCellValueFactory(new PropertyValueFactory<>("Label"));
-		pColumn.setCellValueFactory(new PropertyValueFactory<>("RandomPassword"));
-		eColumn.setCellValueFactory(new PropertyValueFactory<>("Entropy"));
-		sessionUser.setUser(username.getText());
-		ArrayList<Password> passList = dao.getAllPasswords(sessionUser);
-		ObservableList<Password> savedPasswords = FXCollections.observableArrayList(passList);
-		table.setItems(savedPasswords);
+	
 	}
 	
 	public userController()
@@ -102,6 +94,19 @@ public class userController implements Initializable{
 	}
 	public void refresh(ActionEvent event)
 	{
+		ArrayList<Password> passList = dao.getAllPasswords(sessionUser);
+		ObservableList<Password> savedPasswords = FXCollections.observableArrayList(passList);
+		table.setItems(savedPasswords);
+	}
+	public void initData(User u)
+	{
+		sessionUser.setUser(u.getUser());
+		username.setText(sessionUser.getUser());
+		nColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
+		lColumn.setCellValueFactory(new PropertyValueFactory<>("Label"));
+		pColumn.setCellValueFactory(new PropertyValueFactory<>("RandomPassword"));
+		eColumn.setCellValueFactory(new PropertyValueFactory<>("Entropy"));
+		
 		ArrayList<Password> passList = dao.getAllPasswords(sessionUser);
 		ObservableList<Password> savedPasswords = FXCollections.observableArrayList(passList);
 		table.setItems(savedPasswords);

@@ -21,10 +21,6 @@
          <font>
             <Font size="18.0" />
          </font></TextField>
-      <TextField fx:id="password" alignment="CENTER" layoutX="421.0" layoutY="408.0" prefHeight="35.0" prefWidth="161.0" promptText="Password">
-         <font>
-            <Font size="18.0" />
-         </font></TextField>
       <Button fx:id="submit" layoutX="468.0" layoutY="460.0" mnemonicParsing="false" onAction="#submitForm" text="Submit">
          <font>
             <Font size="14.0" />
@@ -34,5 +30,10 @@
             <Font size="16.0" />
          </font>
       </Hyperlink>
+      <PasswordField fx:id="password" alignment="CENTER" layoutX="421.0" layoutY="410.0" prefHeight="39.0" prefWidth="161.0" promptText="Password">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </PasswordField>
    </children>
 </AnchorPane>

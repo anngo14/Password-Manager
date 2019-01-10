@@ -11,14 +11,15 @@
          <font>
             <Font size="14.0" />
          </font></Button>
-      <TextField fx:id="password" alignment="CENTER" layoutX="421.0" layoutY="408.0" prefHeight="35.0" prefWidth="158.0" promptText="Password">
-         <font>
-            <Font size="18.0" />
-         </font></TextField>
       <TextField fx:id="username" alignment="CENTER" layoutX="421.0" layoutY="361.0" prefHeight="35.0" prefWidth="158.0" promptText="Username">
          <font>
             <Font size="18.0" />
          </font></TextField>
+      <PasswordField fx:id="password" alignment="CENTER" layoutX="421.0" layoutY="411.0" prefHeight="39.0" prefWidth="158.0" promptText="Password">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </PasswordField>
       <Hyperlink fx:id="register" layoutX="414.0" layoutY="511.0" onAction="#registerUser" text="Register as a New User">
          <font>
             <Font size="16.0" />
@@ -41,5 +42,6 @@
          <font>
             <Font size="16.0" />
          </font></Hyperlink>
+    
    </children>
 </AnchorPane>
