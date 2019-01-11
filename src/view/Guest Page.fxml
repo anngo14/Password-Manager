@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -7,27 +8,32 @@
 
 <AnchorPane fx:id="content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.guestController">
    <children>
-      <Text layoutX="14.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome, GUEST">
+      <ImageView fitHeight="683.0" fitWidth="1000.0" layoutY="117.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Resources/passwords-10x10-featured.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="14.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome,">
          <font>
-            <Font size="48.0" />
+            <Font name="Arial Black" size="48.0" />
          </font>
       </Text>
-      <TextField fx:id="randomPassword" alignment="CENTER" editable="false" layoutX="97.0" layoutY="264.0" prefHeight="70.0" prefWidth="639.0">
+      <TextField fx:id="randomPassword" alignment="CENTER" editable="false" layoutX="97.0" layoutY="193.0" prefHeight="70.0" prefWidth="639.0">
          <font>
             <Font size="24.0" />
          </font></TextField>
-      <Button fx:id="generate" layoutX="745.0" layoutY="264.0" mnemonicParsing="false" onAction="#generatePassword" prefHeight="70.0" prefWidth="149.0" text="Generate">
+      <Button fx:id="generate" layoutX="745.0" layoutY="193.0" mnemonicParsing="false" onAction="#generatePassword" prefHeight="70.0" prefWidth="149.0" text="Generate">
          <font>
-            <Font size="14.0" />
+            <Font size="16.0" />
          </font>
       </Button>
-      <TextField fx:id="passwordCheck" alignment="CENTER" layoutX="255.0" layoutY="537.0" prefHeight="70.0" prefWidth="639.0">
+      <TextField fx:id="passwordCheck" alignment="CENTER" layoutX="255.0" layoutY="646.0" prefHeight="70.0" prefWidth="639.0">
          <font>
             <Font size="24.0" />
          </font></TextField>
-      <Button fx:id="check" layoutX="97.0" layoutY="537.0" mnemonicParsing="false" onAction="#submitCheck" prefHeight="70.0" prefWidth="149.0" text="Check Password">
+      <Button fx:id="check" layoutX="97.0" layoutY="646.0" mnemonicParsing="false" onAction="#submitCheck" prefHeight="70.0" prefWidth="149.0" text="Check Password">
          <font>
-            <Font size="14.0" />
+            <Font size="16.0" />
          </font>
       </Button>
       <Hyperlink layoutX="791.0" layoutY="32.0" onAction="#backToLogin" text="Login">
@@ -40,5 +46,15 @@
             <Font size="18.0" />
          </font>
       </Hyperlink>
+      <Label layoutX="287.0" layoutY="22.0" opacity="0.68" text="GUEST">
+         <font>
+            <Font name="Forte" size="48.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="35.0" fitWidth="57.0" layoutX="719.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Desktop/the_guest_1331599.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

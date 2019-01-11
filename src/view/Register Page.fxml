@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -7,33 +8,38 @@
 
 <AnchorPane fx:id="content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.registerController">
    <children>
-      <Label layoutX="237.0" layoutY="127.0" text="Password Manager" textAlignment="CENTER">
+      <Label layoutX="85.0" layoutY="127.0" text="Password Manager" textAlignment="CENTER">
          <font>
-            <Font size="64.0" />
+            <Font name="Berlin Sans FB" size="64.0" />
          </font>
       </Label>
-      <Label layoutX="451.0" layoutY="304.0" text="Register">
+      <Label layoutX="546.0" layoutY="279.0" text="Register">
          <font>
-            <Font size="28.0" />
+            <Font name="Berlin Sans FB" size="28.0" />
          </font>
       </Label>
-      <TextField fx:id="username" alignment="CENTER" layoutX="421.0" layoutY="361.0" prefHeight="35.0" prefWidth="161.0" promptText="Username">
+      <TextField fx:id="username" alignment="CENTER" layoutX="546.0" layoutY="325.0" prefHeight="39.0" prefWidth="286.0" promptText="Username">
          <font>
             <Font size="18.0" />
          </font></TextField>
-      <Button fx:id="submit" layoutX="468.0" layoutY="460.0" mnemonicParsing="false" onAction="#submitForm" text="Submit">
+      <Button fx:id="submit" layoutX="546.0" layoutY="440.0" mnemonicParsing="false" onAction="#submitForm" text="Submit">
          <font>
-            <Font size="14.0" />
+            <Font size="16.0" />
          </font></Button>
       <Hyperlink fx:id="back" layoutX="836.0" layoutY="738.0" onAction="#backToLogin" prefHeight="28.0" prefWidth="150.0" text="Back To Login">
          <font>
             <Font size="16.0" />
          </font>
       </Hyperlink>
-      <PasswordField fx:id="password" alignment="CENTER" layoutX="421.0" layoutY="410.0" prefHeight="39.0" prefWidth="161.0" promptText="Password">
+      <PasswordField fx:id="password" alignment="CENTER" layoutX="546.0" layoutY="381.0" prefHeight="39.0" prefWidth="286.0" promptText="Password">
          <font>
             <Font size="18.0" />
          </font>
       </PasswordField>
+      <ImageView fitHeight="414.0" fitWidth="304.0" layoutX="170.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Resources/topimage.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

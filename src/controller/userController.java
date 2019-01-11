@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.Label;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -44,6 +45,7 @@ public class userController implements Initializable{
 	TableColumn pColumn;
 	@FXML
 	TableColumn eColumn;
+	
 
 	PasswordsDAO dao = new PasswordsDAOImpl();
 	User sessionUser = new User();

@@ -1,7 +1,0 @@
-@font-face {
-	font-family:'Major Mono Display';
-	src: url("/font/MajorMonoDisplay-Regular.ttf");
-}
-.root {
-    font-family: 'Major Mono Display', monospace;
-}

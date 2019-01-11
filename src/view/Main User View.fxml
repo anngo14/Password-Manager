@@ -9,12 +9,12 @@
    <children>
       <Text layoutX="14.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome,">
          <font>
-            <Font size="48.0" />
+            <Font name="Arial Black" size="48.0" />
          </font>
       </Text>
-      <TextField fx:id="username" editable="false" layoutX="223.0" layoutY="-2.0" prefHeight="102.0" prefWidth="391.0" promptText="Username" style="-fx-background-color: transparent;">
+      <TextField fx:id="username" editable="false" layoutX="258.0" layoutY="-4.0" mouseTransparent="true" opacity="0.68" prefHeight="102.0" prefWidth="391.0" style="-fx-background-color: transparent;">
          <font>
-            <Font size="48.0" />
+            <Font name="Forte" size="48.0" />
          </font>
       </TextField>
       <Hyperlink layoutX="881.0" layoutY="32.0" onAction="#backToLogin" text="Logout">
@@ -37,12 +37,12 @@
       </TextField>
       <Button layoutX="712.0" layoutY="484.0" mnemonicParsing="false" onAction="#generatePassword" prefHeight="77.0" prefWidth="121.0" text="Generate">
          <font>
-            <Font size="14.0" />
+            <Font size="18.0" />
          </font>
       </Button>
       <Button layoutX="839.0" layoutY="484.0" mnemonicParsing="false" onAction="#savePassword" prefHeight="77.0" prefWidth="112.0" text="Save">
          <font>
-            <Font size="14.0" />
+            <Font size="18.0" />
          </font>
       </Button>
       <TextField fx:id="label" layoutX="210.0" layoutY="444.0" prefHeight="29.0" prefWidth="175.0" />
@@ -53,7 +53,7 @@
       </TextField>
       <Button layoutX="712.0" layoutY="625.0" mnemonicParsing="false" onAction="#checkPassword" prefHeight="77.0" prefWidth="241.0" text="Check Password Strength">
          <font>
-            <Font size="14.0" />
+            <Font size="18.0" />
          </font>
       </Button>
       <Text layoutX="50.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password Label: ">
