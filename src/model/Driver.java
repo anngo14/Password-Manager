@@ -21,8 +21,6 @@ public class Driver extends Application{
 		{
 			Parent root=FXMLLoader.load(getClass().getResource("/view/Login Page.fxml"));
 			Scene scene = new Scene(root, 1000, 800);
-			Font.loadFont(getClass().getResourceAsStream("/font/MajorMonoDisplay-Regular.ttf"), 28);
-			scene.getStylesheets().add(getClass().getResource("/view/application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Password Manager");
 			primaryStage.show();
