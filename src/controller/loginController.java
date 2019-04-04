@@ -9,9 +9,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -58,6 +61,17 @@ public class loginController {
 			window.setScene(scene);
 			window.show();
 					
+		}
+		else
+		{
+			Alert alert = new Alert(AlertType.ERROR);
+			
+			alert.setTitle("Login");
+			alert.setHeaderText("Failed to Login");
+			alert.setContentText("Incorrect Password or Username. Try Again!");
+			Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+			stage.getIcons().add(new Image("Resources/error-7-xxl.png"));
+			alert.showAndWait();
 		}
 	}
 	public void registerUser(ActionEvent event) throws IOException

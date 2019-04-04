@@ -1,15 +1,20 @@
 package controller;
 
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
 
 import dao.PasswordsDAO;
 import dao.PasswordsDAOImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,8 +22,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import model.Entropy;
 import model.Password;
 import model.User;
@@ -51,9 +61,38 @@ public class userController implements Initializable{
 	User sessionUser = new User();
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-	
+		table.setOnMousePressed(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
+					Password password = (Password) table.getSelectionModel().getSelectedItem();
+					handleClick(2, password);
+				} else if (event.isPrimaryButtonDown() && event.getClickCount() == 3) {
+					Password password = (Password) table.getSelectionModel().getSelectedItem();
+					handleClick(3, password);
+				}
+			}
+		});
 	}
-	
+	public void handleClick(int i, Password password)
+	{
+		switch(i)
+		{
+			case 2:
+				StringSelection stringSelection = new StringSelection(password.getRandomPassword());
+				Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+				clipboard.setContents(stringSelection, null);
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Password Manager");
+				alert.setHeaderText("Clipboard");
+				alert.setContentText("Password has been copied to the clipboard");
+				Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+				stage.getIcons().add(new Image("Resources/clipboard-outline-filled.png"));
+				alert.showAndWait();
+				break;
+			case 3:
+				break;
+		}
+	}
 	public userController()
 	{
 		super();
