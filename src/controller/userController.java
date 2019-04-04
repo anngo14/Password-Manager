@@ -1,6 +1,5 @@
 package controller;
 
-import java.awt.Label;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -14,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -26,7 +26,7 @@ import model.User;
 public class userController implements Initializable{
 
 	@FXML
-	TextField username;
+	Label username;
 	@FXML
 	AnchorPane content;
 	@FXML
