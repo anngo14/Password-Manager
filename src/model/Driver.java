@@ -20,7 +20,6 @@ public class Driver extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		try
 		{
-			
 			Parent root=FXMLLoader.load(getClass().getResource("/view/Login Page.fxml"));
 			Scene scene = new Scene(root, 1000, 800);
 			primaryStage.setScene(scene);

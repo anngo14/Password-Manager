@@ -22,6 +22,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -66,7 +69,7 @@ public class userController implements Initializable{
 				if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
 					Password password = (Password) table.getSelectionModel().getSelectedItem();
 					handleClick(2, password);
-				} else if (event.isPrimaryButtonDown() && event.getClickCount() == 3) {
+				} else if (event.isSecondaryButtonDown() && event.getClickCount() == 2) {
 					Password password = (Password) table.getSelectionModel().getSelectedItem();
 					handleClick(3, password);
 				}
@@ -90,6 +93,22 @@ public class userController implements Initializable{
 				alert.showAndWait();
 				break;
 			case 3:
+				try {
+					FXMLLoader loader = new FXMLLoader();
+					loader.setLocation(getClass().getResource("/view/PasswordDetailedView.fxml"));
+					Parent root = (Parent) loader.load();
+					Stage stageTemp = new Stage();
+					stageTemp.setTitle("Password Detailed Information");
+					stageTemp.setScene(new Scene(root, 800, 600));
+					stageTemp.getIcons().add(new Image("Resources/icons8-grand-master-key-64.png"));
+					detailedController detail = loader.getController();
+					detail.initData(password, sessionUser);
+					stageTemp.show();
+					
+				}
+				catch(IOException e) {
+					e.printStackTrace();
+				}
 				break;
 		}
 	}
