@@ -67,7 +67,7 @@ public class userController implements Initializable{
 	PasswordsDAO dao = new PasswordsDAOImpl();
 	User sessionUser = new User();
 	Password generator = new Password();
-	int passwordLength;
+	int passwordLength = 32;
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		table.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -111,7 +111,6 @@ public class userController implements Initializable{
 					detailedController detail = loader.getController();
 					detail.initData(password, sessionUser);
 					stageTemp.show();
-					
 				}
 				catch(IOException e) {
 					e.printStackTrace();
@@ -147,12 +146,9 @@ public class userController implements Initializable{
 	}
 	public void generatePassword(ActionEvent event)
 	{
-		generator.setRandomPassword(generator.generatePassword(this.passwordLength));
-		System.out.println("" + passwordLength);
+		generator.setRandomPassword(generator.generatePassword(passwordLength));
 		generator.cleansePassword();
-		
 		randomPassword.setText(generator.getRandomPassword());
-		
 	}
 	public void savePassword(ActionEvent event)
 	{
@@ -183,6 +179,8 @@ public class userController implements Initializable{
 		ArrayList<Password> passList = dao.getAllPasswords(sessionUser);
 		ObservableList<Password> savedPasswords = FXCollections.observableArrayList(passList);
 		table.setItems(savedPasswords);
+		System.out.println(generator);
+		System.out.println("" + this.passwordLength);
 	}
 	public void initData(User u)
 	{
@@ -197,9 +195,16 @@ public class userController implements Initializable{
 		ObservableList<Password> savedPasswords = FXCollections.observableArrayList(passList);
 		table.setItems(savedPasswords);
 	}
-	public void lastData(int length)
+	public void initData(int length)
 	{
 		this.passwordLength = length;
+		Password generated = new Password();
+		generated.setRandomPassword(generator.generatePassword(this.passwordLength));
+		generated.cleansePassword();
+		generator = generated;
+		
+		randomPassword.setText(generator.getRandomPassword());
+
 	}
 	
 }

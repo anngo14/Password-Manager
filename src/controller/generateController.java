@@ -47,11 +47,12 @@ public class generateController {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("/view/Main User View.fxml"));
 			Parent root = (Parent) loader.load();
+			Scene scene = new Scene(root);
 			Stage stage = (Stage) okButton.getScene().getWindow();
 
 			userController uControl = loader.getController();
-			uControl.lastData(passLength.getValue());
-			stage.close();
+			uControl.initData(passLength.getValue());
+			stage.hide();
 		} catch (IOException e)
 		{
 			e.printStackTrace();
