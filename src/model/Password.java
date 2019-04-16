@@ -12,7 +12,7 @@ public class Password {
 	int passwordId;
 	Pool pool;
 	
-	final int passwordLength = 32;
+	final int defaultLength = 32;
 	final int poolSize = 94;
 	
 	public Password()
@@ -26,7 +26,7 @@ public class Password {
 		this.link = "N/A";
 		combinedPool = pool.getCombined();
 		
-		this.randomPassword = generatePassword();
+		this.randomPassword = generatePassword(defaultLength);
 		cleansePassword();
 		
 	}
@@ -38,7 +38,7 @@ public class Password {
 		this.pool = new Pool();
 		combinedPool = pool.getCombined();
 		this.link = "N/A";
-		this.randomPassword = generatePassword();
+		this.randomPassword = generatePassword(defaultLength);
 		cleansePassword();
 	}
 	
@@ -107,7 +107,7 @@ public class Password {
 	{
 		this.passwordId = id;
 	}
-	public String generatePassword()
+	public String generatePassword(int passwordLength)
 	{
 		ArrayList<String> list = new ArrayList<String>();
 		for(int i = 0; i < passwordLength; i++)

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.generateController">
+   <children>
+      <Text layoutX="26.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Length: ">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="124.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numeric">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="124.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alpha">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="124.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Special">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <CheckBox layoutX="247.0" layoutY="91.0" mnemonicParsing="false" selected="true" text="0-9">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="217.0" layoutY="140.0" mnemonicParsing="false" selected="true" text="A-z">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="230.0" layoutY="195.0" mnemonicParsing="false" selected="true" text="!@#$">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </CheckBox>
+      <Button fx:id="okButton" layoutX="437.0" layoutY="247.0" mnemonicParsing="false" onAction="#handle" text="OK">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="passLength" layoutX="131.0" layoutY="25.0" prefHeight="40.0" prefWidth="199.0" visibleRowCount="5" />
+   </children>
+</AnchorPane>

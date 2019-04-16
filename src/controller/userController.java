@@ -27,8 +27,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -58,10 +60,14 @@ public class userController implements Initializable{
 	TableColumn pColumn;
 	@FXML
 	TableColumn eColumn;
+	@FXML
+	Button generateButton;
 	
 
 	PasswordsDAO dao = new PasswordsDAOImpl();
 	User sessionUser = new User();
+	Password generator = new Password();
+	int passwordLength;
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		table.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -75,6 +81,7 @@ public class userController implements Initializable{
 				}
 			}
 		});
+		
 	}
 	public void handleClick(int i, Password password)
 	{
@@ -112,6 +119,23 @@ public class userController implements Initializable{
 				break;
 		}
 	}
+	public void handleOptions()
+	{
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource("/view/generateOptionView.fxml"));
+			Parent root = (Parent) loader.load();
+			Stage stageTemp = new Stage();
+			stageTemp.setTitle("Password Generator Options");
+			stageTemp.setScene(new Scene(root, 500, 300));
+			stageTemp.getIcons().add(new Image("Resources/icons8-grand-master-key-64.png"));
+			stageTemp.show();
+			
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
 	public userController()
 	{
 		super();
@@ -123,10 +147,12 @@ public class userController implements Initializable{
 	}
 	public void generatePassword(ActionEvent event)
 	{
-		Password generator = new Password();
-		String random = generator.getRandomPassword();
+		generator.setRandomPassword(generator.generatePassword(this.passwordLength));
+		System.out.println("" + passwordLength);
+		generator.cleansePassword();
 		
-		randomPassword.setText(random);
+		randomPassword.setText(generator.getRandomPassword());
+		
 	}
 	public void savePassword(ActionEvent event)
 	{
@@ -170,6 +196,10 @@ public class userController implements Initializable{
 		ArrayList<Password> passList = dao.getAllPasswords(sessionUser);
 		ObservableList<Password> savedPasswords = FXCollections.observableArrayList(passList);
 		table.setItems(savedPasswords);
+	}
+	public void lastData(int length)
+	{
+		this.passwordLength = length;
 	}
 	
 }
