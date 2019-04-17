@@ -28,6 +28,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
@@ -65,6 +66,12 @@ public class userController implements Initializable{
 	Button generateButton;
 	@FXML
 	ComboBox<Integer> passLength;
+	@FXML
+	CheckBox alphaChar;
+	@FXML
+	CheckBox numberChar;
+	@FXML
+	CheckBox specialChar;
 	
 
 	PasswordsDAO dao = new PasswordsDAOImpl();
@@ -140,6 +147,19 @@ public class userController implements Initializable{
 	}
 	public void generatePassword(ActionEvent event)
 	{
+		if(alphaChar.isSelected())
+		{
+			System.out.println("ALPHA");
+		}
+		if(numberChar.isSelected())
+		{
+			System.out.println("NUMERICAL");
+		}
+		if(specialChar.isSelected())
+		{
+			System.out.println("SPECIAL");
+		}
+		this.passwordLength = passLength.getValue();
 		generator.setRandomPassword(generator.generatePassword(passwordLength));
 		generator.cleansePassword();
 		randomPassword.setText(generator.getRandomPassword());

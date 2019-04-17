@@ -66,7 +66,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <ComboBox fx:id="passLength" layoutX="478.0" layoutY="444.0" prefHeight="29.0" prefWidth="78.0" />
+      <ComboBox fx:id="passLength" layoutX="478.0" layoutY="444.0" opacity="0.75" prefHeight="29.0" prefWidth="78.0" visibleRowCount="5" />
       <Text layoutX="400.0" layoutY="466.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Length: ">
          <font>
             <Font size="22.0" />
