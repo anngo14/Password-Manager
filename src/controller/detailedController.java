@@ -29,7 +29,7 @@ public class detailedController {
 	@FXML
 	TextField link;
 	@FXML
-	Label entropy;
+	TextField entropy;
 	@FXML
 	Button saveButton;
 	@FXML
