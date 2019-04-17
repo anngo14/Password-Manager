@@ -28,6 +28,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
@@ -62,6 +63,8 @@ public class userController implements Initializable{
 	TableColumn eColumn;
 	@FXML
 	Button generateButton;
+	@FXML
+	ComboBox<Integer> passLength;
 	
 
 	PasswordsDAO dao = new PasswordsDAOImpl();
@@ -70,6 +73,13 @@ public class userController implements Initializable{
 	int passwordLength = 32;
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		ArrayList<Integer> lengths = new ArrayList<Integer>();
+		for(int i = 32; i >= 1; i--)
+		{
+			lengths.add(i);
+		}
+		passLength.getItems().addAll(lengths);
+		passLength.setValue(passwordLength);
 		table.setOnMousePressed(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
 				if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
@@ -118,23 +128,7 @@ public class userController implements Initializable{
 				break;
 		}
 	}
-	public void handleOptions()
-	{
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("/view/generateOptionView.fxml"));
-			Parent root = (Parent) loader.load();
-			Stage stageTemp = new Stage();
-			stageTemp.setTitle("Password Generator Options");
-			stageTemp.setScene(new Scene(root, 500, 300));
-			stageTemp.getIcons().add(new Image("Resources/icons8-grand-master-key-64.png"));
-			stageTemp.show();
-			
-		}
-		catch(IOException e) {
-			e.printStackTrace();
-		}
-	}
+	
 	public userController()
 	{
 		super();
@@ -194,17 +188,6 @@ public class userController implements Initializable{
 		ArrayList<Password> passList = dao.getAllPasswords(sessionUser);
 		ObservableList<Password> savedPasswords = FXCollections.observableArrayList(passList);
 		table.setItems(savedPasswords);
-	}
-	public void initData(int length)
-	{
-		this.passwordLength = length;
-		Password generated = new Password();
-		generated.setRandomPassword(generator.generatePassword(this.passwordLength));
-		generated.cleansePassword();
-		generator = generated;
-		
-		randomPassword.setText(generator.getRandomPassword());
-
 	}
 	
 }

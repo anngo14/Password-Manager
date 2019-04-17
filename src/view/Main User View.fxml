@@ -40,7 +40,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="839.0" layoutY="520.0" mnemonicParsing="false" onAction="#savePassword" prefHeight="41.0" prefWidth="112.0" text="Save">
+      <Button layoutX="839.0" layoutY="484.0" mnemonicParsing="false" onAction="#savePassword" prefHeight="77.0" prefWidth="112.0" text="Save">
          <font>
             <Font size="18.0" />
          </font>
@@ -56,7 +56,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Text layoutX="50.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password Label: ">
+      <Text layoutX="50.0" layoutY="467.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password Label: ">
          <font>
             <Font size="22.0" />
          </font>
@@ -66,9 +66,26 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="839.0" layoutY="484.0" mnemonicParsing="false" onAction="#handleOptions" prefHeight="30.0" prefWidth="112.0" text="Options">
+      <ComboBox fx:id="passLength" layoutX="478.0" layoutY="444.0" prefHeight="29.0" prefWidth="78.0" />
+      <Text layoutX="400.0" layoutY="466.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Length: ">
          <font>
-            <Font size="14.0" />
-         </font></Button>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <CheckBox fx:id="alphaChar" layoutX="577.0" layoutY="442.0" mnemonicParsing="false" selected="true" text="A-Z">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="numberChar" layoutX="675.0" layoutY="443.0" mnemonicParsing="false" selected="true" text="0-9">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="specialChar" layoutX="773.0" layoutY="443.0" mnemonicParsing="false" selected="true" text="!@#$">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </CheckBox>
    </children>
 </AnchorPane>
