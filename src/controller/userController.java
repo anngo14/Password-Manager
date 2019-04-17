@@ -38,6 +38,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.Entropy;
 import model.Password;
+import model.Pool;
 import model.User;
 
 public class userController implements Initializable{
@@ -147,22 +148,40 @@ public class userController implements Initializable{
 	}
 	public void generatePassword(ActionEvent event)
 	{
+		int alpha = 0, number = 0, special = 0;
+		
 		if(alphaChar.isSelected())
 		{
-			System.out.println("ALPHA");
+			alpha = 1;
 		}
 		if(numberChar.isSelected())
 		{
-			System.out.println("NUMERICAL");
+			number = 1;
 		}
 		if(specialChar.isSelected())
 		{
-			System.out.println("SPECIAL");
+			special = 1;
 		}
+		
+		if(alpha == 0 && number == 0 && special == 0)
+		{
+			Alert alert = new Alert(AlertType.ERROR);
+			
+			alert.setTitle("Generator");
+			alert.setHeaderText("ERROR!");
+			alert.setContentText("Incorrect Value. Try Again!");
+			Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+			stage.getIcons().add(new Image("Resources/error-7-xxl.png"));
+			alert.showAndWait();
+			return;
+		}
+		Pool pool = new Pool(alpha, number, special);
 		this.passwordLength = passLength.getValue();
+		generator.setCombinedPool(pool.getCombined());
 		generator.setRandomPassword(generator.generatePassword(passwordLength));
 		generator.cleansePassword();
 		randomPassword.setText(generator.getRandomPassword());
+		
 	}
 	public void savePassword(ActionEvent event)
 	{
@@ -184,7 +203,7 @@ public class userController implements Initializable{
 	}
 	public void checkPassword(ActionEvent event)
 	{
-		String passwordToCheck = checkPassword.getText();
+		String passwordToCheck = randomPassword.getText();
 		Entropy check = new Entropy(passwordToCheck);
 		checkPassword.setText("" + check.getBits());
 	}

@@ -46,7 +46,7 @@
          </font>
       </Button>
       <TextField fx:id="label" layoutX="210.0" layoutY="444.0" prefHeight="29.0" prefWidth="175.0" />
-      <TextField fx:id="checkPassword" alignment="CENTER" layoutX="50.0" layoutY="625.0" prefHeight="77.0" prefWidth="654.0">
+      <TextField fx:id="checkPassword" alignment="CENTER" editable="false" layoutX="50.0" layoutY="625.0" prefHeight="77.0" prefWidth="654.0">
          <font>
             <Font size="28.0" />
          </font>

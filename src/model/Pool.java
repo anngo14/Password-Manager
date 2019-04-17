@@ -26,6 +26,14 @@ public class Pool {
 		initializeNumber();
 		combinePool();
 	}
+	public Pool(int first, int second, int third)
+	{
+		initializeLower();
+		initializeUpper();
+		initializeSpecial();
+		initializeNumber();
+		combinePool(first, second, third);
+	}
 	public ArrayList<Character> getLower()
 	{
 		return this.lower;
@@ -96,5 +104,26 @@ public class Pool {
 			combinedPool.add(c.toString());
 		}
 		
+	}
+	public void combinePool(int first, int second, int third)
+	{
+		ArrayList<Character> charPool = new ArrayList<Character>();
+		if(first == 1)
+		{
+			charPool.addAll(lower);
+			charPool.addAll(upper);
+		}
+		if(second == 1)
+		{
+			charPool.addAll(number);
+		}
+		if(third == 1)
+		{
+			charPool.addAll(special);
+		}
+		for(Character c: charPool)
+		{
+			combinedPool.add(c.toString());
+		}
 	}
 }

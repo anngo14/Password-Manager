@@ -13,7 +13,7 @@ public class Password {
 	Pool pool;
 	
 	final int defaultLength = 32;
-	final int poolSize = 94;
+	int poolSize = 94;
 	
 	public Password()
 	{
@@ -106,6 +106,11 @@ public class Password {
 	public void setPasswordId(int id)
 	{
 		this.passwordId = id;
+	}
+	public void setCombinedPool(ArrayList<String> pool)
+	{
+		this.combinedPool = pool;
+		this.poolSize = pool.size();
 	}
 	public String generatePassword(int passwordLength)
 	{
