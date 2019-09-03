@@ -9,5 +9,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="lib" path="C:/Users/Andrew/git/Password-Manager/src/postgresql-42.2.5.jar"/>
 	<classpathentry kind="lib" path="mysql-connector-java-8.0.17.jar"/>
+	<classpathentry kind="lib" path="/Ground Zero/mysql-connector-java-8.0.17.jar"/>
+	<classpathentry kind="lib" path="/assignment1/mysql-connector-java-5.1.40-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
