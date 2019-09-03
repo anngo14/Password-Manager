@@ -23,7 +23,8 @@ public class PasswordsDAOImpl implements PasswordsDAO{
 		{
 			connection = DAOUtilities.getConnection();
 			
-			String sql = "SELECT * FROM \"Passwords\" WHERE \"userName\" = ?";
+			//String sql = "SELECT * FROM \"Passwords\" WHERE \"userName\" = ?";
+			String sql = "SELECT * FROM Passwords WHERE userName = ?";
 			stmt = connection.prepareStatement(sql);
 			stmt.setString(1, user.getUser());
 			
@@ -61,13 +62,15 @@ public class PasswordsDAOImpl implements PasswordsDAO{
 			connection = DAOUtilities.getConnection();
 			statement = connection.createStatement();
 
-			String sql = "INSERT INTO \"Passwords\" VALUES (?,?,?,?,?,?)";
-			String sql1 = "SELECT COUNT(*) FROM \"Passwords\"";
+			//String sql = "INSERT INTO \"Passwords\" VALUES (?,?,?,?,?,?)";
+			String sql = "INSERT INTO Passwords VALUES (?,?,?,?,?,?)";
+			//String sql1 = "SELECT COUNT(*) FROM \"Passwords\"";
+			String sql1 = "SELECT COUNT(*) FROM Passwords";
 			
 			ResultSet rs = statement.executeQuery(sql1);
 			while(rs.next())
 			{
-				numberOfRows = rs.getInt("count");
+				numberOfRows = rs.getInt("COUNT(*)");
 			}
 			stmt = connection.prepareStatement(sql);
 			stmt.setInt(1, numberOfRows+1);
@@ -91,7 +94,8 @@ public class PasswordsDAOImpl implements PasswordsDAO{
 		int success = 0;
 		try {
 			connection = DAOUtilities.getConnection();
-			String sql = "UPDATE \"Passwords\" SET label = ?, password = ?, link = ? WHERE \"passwordId\" = ?";
+			//String sql = "UPDATE \"Passwords\" SET label = ?, password = ?, link = ? WHERE \"passwordId\" = ?";
+			String sql = "UPDATE Passwords SET label = ?, password = ?, link = ? WHERE passwordId = ?";
 			stmt = connection.prepareStatement(sql);
 			stmt.setString(1, passwordToSave.getLabel());
 			stmt.setString(2, passwordToSave.getRandomPassword());
@@ -112,7 +116,8 @@ public class PasswordsDAOImpl implements PasswordsDAO{
 		int success = 0;
 		try {
 			connection = DAOUtilities.getConnection();
-			String sql = "DELETE FROM \"Passwords\" WHERE \"passwordId\" = ?";
+			//String sql = "DELETE FROM \"Passwords\" WHERE \"passwordId\" = ?";
+			String sql = "DELETE FROM Passwords WHERE passwordId = ?";
 			stmt = connection.prepareStatement(sql);
 			stmt.setInt(1, passwordToDelete.getPasswordId());
 			

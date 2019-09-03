@@ -22,8 +22,8 @@ public class UserDAOImpl implements UserDAO{
 		{
 			connection = DAOUtilities.getConnection();
 			stmt = connection.createStatement();
-			String sql = "SELECT * FROM \"Users\"";
-			
+			//String sql = "SELECT * FROM \"Users\"";
+			String sql = "SELECT * FROM Users";
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next())
 			{
@@ -48,7 +48,8 @@ public class UserDAOImpl implements UserDAO{
 		try
 		{
 			connection = DAOUtilities.getConnection();
-			String sql = "INSERT INTO \"Users\" VALUES (?,?)";
+			//String sql = "INSERT INTO \"Users\" VALUES (?,?)";
+			String sql = "INSERT INTO Users VALUES (?,?)";
 			stmt = connection.prepareStatement(sql);
 			stmt.setString(1, userToSave.getUser());
 			stmt.setString(2, userToSave.getPassword());
@@ -69,7 +70,8 @@ public class UserDAOImpl implements UserDAO{
 		try
 		{
 			connection = DAOUtilities.getConnection();
-			String sql = "UPDATE \"Users\" SET \"userPassword\" = ? WHERE \"userName\" = ?";
+			//String sql = "UPDATE \"Users\" SET \"userPassword\" = ? WHERE \"userName\" = ?";
+			String sql = "UPDATE Users SET userPassword = ? WHERE userName = ?";
 			stmt = connection.prepareStatement(sql);
 			stmt.setString(1, userToReset.getPassword());
 			stmt.setString(2, userToReset.getUser());
@@ -91,7 +93,8 @@ public class UserDAOImpl implements UserDAO{
 		try
 		{
 			connection = DAOUtilities.getConnection();
-			String sql = "SELECT \"userPassword\" FROM \"Users\" WHERE \"userName\" = ?";
+			//String sql = "SELECT \"userPassword\" FROM \"Users\" WHERE \"userName\" = ?";
+			String sql = "SELECT userPassword FROM Users WHERE userName = ?";
 			stmt = connection.prepareStatement(sql);
 			stmt.setString(1,  userToCheck.getUser());
 			

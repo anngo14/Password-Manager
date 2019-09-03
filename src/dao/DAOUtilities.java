@@ -6,9 +6,12 @@ import java.sql.SQLException;
 
 public class DAOUtilities {
 
-	private static final String CONNECTION_USERNAME = "postgres";
+	/*private static final String CONNECTION_USERNAME = "postgres";
 	private static final String CONNECTION_PASSWORD = "password";
-	private static final String URL = "jdbc:postgresql://localhost:5432/passwordManager";
+	private static final String URL = "jdbc:postgresql://localhost:5432/passwordManager";*/
+	private static final String CONNECTION_USERNAME = "admin";
+	private static final String CONNECTION_PASSWORD = "Powermacg5";
+	private static final String URL = "jdbc:mysql://totemdb-1.cykewri9xfhv.us-east-2.rds.amazonaws.com/passwordManager";
 	private static Connection connection;
 
 	static synchronized Connection getConnection() throws SQLException {
